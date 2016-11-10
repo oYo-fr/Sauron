@@ -1,0 +1,185 @@
+﻿<Fluent:RibbonWindow
+        x:Class="Sauron.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:local="clr-namespace:Sauron"
+        xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:dtvm="clr-namespace:Sauron.DesignTimeViewModels"
+        xmlns:v="clr-namespace:Sauron.Views"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:ViewModel="clr-namespace:Sauron.ViewModels"
+        xmlns:conv="clr-namespace:Sauron.Converters"
+        xmlns:cmd="clr-namespace:Sauron.Commands"
+        d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type={x:Type dtvm:DTMainViewModel}}"
+        xmlns:resx="clr-namespace:Sauron.Properties"
+        mc:Ignorable="d"
+        Title="Sauron" Height="683.824" Width="914.705">
+    <Fluent:RibbonWindow.Resources>
+        <conv:CameraViewModelToRstpVideoStreamUrl x:Key="CameraViewModelToRstpVideoStreamUrl"/>
+    </Fluent:RibbonWindow.Resources>
+    <Fluent:RibbonWindow.DataContext>
+        <ViewModel:MainViewModel />
+    </Fluent:RibbonWindow.DataContext>
+    <DockPanel>
+
+        <Fluent:Ribbon DockPanel.Dock="Top" x:Name="ribbon"
+			AutomaticStateManagement="True">
+            <!--<Fluent:Ribbon.Menu>
+                <Fluent:Backstage>
+                    <Fluent:BackstageTabControl/>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>-->
+            <Fluent:Ribbon.ContextualGroups>
+                <Fluent:RibbonContextualTabGroup x:Name="tabGroup1"
+                                                 BorderBrush="Magenta"
+                                                 Background="Magenta"
+                                                 Foreground="Purple"
+                                                 Header="FIRST"
+                                                 Visibility="Visible" />
+
+                <Fluent:RibbonContextualTabGroup x:Name="tabGroup2"
+                                                 BorderBrush="#FF9D00"
+                                                 Background="#FF9D00"
+                                                 Foreground="#C45300"
+                                                 Header="SECOND"
+                                                 Visibility="Visible" />
+
+                <Fluent:RibbonContextualTabGroup x:Name="invisibleTabGroup"
+                                                 BorderBrush="Green"
+                                                 Background="Red"
+                                                 Header="MUST BE HIDDEN"
+                                                 Visibility="Visible" />
+            </Fluent:Ribbon.ContextualGroups>
+            <Fluent:RibbonTabItem x:Name="homeTabItem"
+                                  Header="Home"
+                                  KeyTip="H"
+                                  ToolTip="Regular Tool Tip">
+                <Fluent:RibbonGroupBox Header="{x:Static resx:Resources.MovesGroupBoxLabel}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Fluent:Button Grid.Column="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveUpCommandToolTip}">
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowUp" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                        <Fluent:Button Grid.Column="2" Grid.Row="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveRightCommandToolTip}">
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowRight" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                        <Fluent:Button Grid.Column="1" Grid.Row="2" Size="Small" ToolTip="{x:Static resx:Resources.MoveDownCommandToolTip}">
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowDown" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                        <Fluent:Button Grid.Row="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveLeftCommandToolTip}">
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowLeft" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                    </Grid>
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="{x:Static resx:Resources.ZoomGroupBoxLabel}">
+
+                    <!--<Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomTeleCommandToolTip}" Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}">
+                        <Fluent:Button.LargeIcon>
+                            <fa:ImageAwesome Icon="SearchPlus" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+
+                    <Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomWideCommandToolTip}" Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}">
+                        <Fluent:Button.LargeIcon>
+                            <fa:ImageAwesome Icon="SearchMinus" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>-->
+
+                    
+                    <Fluent:ToggleButton Size="Large" ToolTip="{x:Static resx:Resources.ZoomTeleCommandToolTip}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Checked" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="Unchecked" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Fluent:ToggleButton.LargeIcon>
+                            <fa:ImageAwesome Icon="SearchPlus" />
+                        </Fluent:ToggleButton.LargeIcon>
+                    </Fluent:ToggleButton>
+                    <Fluent:ToggleButton Size="Large" ToolTip="{x:Static resx:Resources.ZoomWideCommandToolTip}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Checked" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="Unchecked" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Fluent:ToggleButton.LargeIcon>
+                            <fa:ImageAwesome Icon="SearchMinus" />
+                        </Fluent:ToggleButton.LargeIcon>
+                    </Fluent:ToggleButton>
+                    <!--<Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomTeleCommandToolTip}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeftButtonUp" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Fluent:Button.LargeIcon>
+                            <fa:ImageAwesome Icon="SearchPlus" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>-->
+                    <!--<Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomWideCommandToolTip}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeftButtonUp" >
+                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Fluent:Button.LargeIcon>
+                            <fa:ImageAwesome Icon="SearchMinus" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>-->
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <Fluent:RibbonTabItem Header="Movements"
+                                  KeyTip="K"
+                                  Group="{Binding ElementName=tabGroup1, Mode=OneWay}">
+                <Fluent:RibbonGroupBox Header="LongLongGroup"
+                                       IsLauncherVisible="False">
+                    <Fluent:RadioButton Header="Test-Radio 1"
+                                        GroupName="Test-Radio"
+                                        IsChecked="True" />
+                    <Fluent:RadioButton Header="Test-Radio 2"
+                                        GroupName="Test-Radio"
+                                        IsChecked="False" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
+
+        <Fluent:StatusBar HorizontalAlignment="Stretch"
+			VerticalAlignment="Bottom"
+			DockPanel.Dock="Bottom"/>
+
+        <v:CameraView DataContext="{Binding .}" /> <!--Source="{Binding SelectedCameraViewModel, Converter={StaticResource CameraViewModelToRstpVideoStreamUrl}}"-->
+    </DockPanel>
+</Fluent:RibbonWindow>

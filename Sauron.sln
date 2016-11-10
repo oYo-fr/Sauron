@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sauron", "Sauron\Sauron.csproj", "{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluent.Ribbon.NET 4.5", "Fluent.Ribbon\Fluent.Ribbon.NET 4.5.csproj", "{4C92FCF4-3561-499F-BC5B-F2F089863047}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Integration|Any CPU = Integration|Any CPU
+		Integration|x86 = Integration|x86
+		OnPremise|Any CPU = OnPremise|Any CPU
+		OnPremise|x86 = OnPremise|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Integration|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Integration|Any CPU.Build.0 = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Integration|x86.ActiveCfg = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Integration|x86.Build.0 = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.OnPremise|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.OnPremise|Any CPU.Build.0 = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.OnPremise|x86.ActiveCfg = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.OnPremise|x86.Build.0 = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Release|x86.ActiveCfg = Release|Any CPU
+		{5A3D95D3-F4DA-4219-A5DE-60B3CF9BC07D}.Release|x86.Build.0 = Release|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Debug|x86.Build.0 = Debug|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Integration|Any CPU.ActiveCfg = Integration|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Integration|Any CPU.Build.0 = Integration|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Integration|x86.ActiveCfg = Integration|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Integration|x86.Build.0 = Integration|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.OnPremise|Any CPU.ActiveCfg = OnPremise|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.OnPremise|Any CPU.Build.0 = OnPremise|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.OnPremise|x86.ActiveCfg = OnPremise|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.OnPremise|x86.Build.0 = OnPremise|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Release|x86.ActiveCfg = Release|Any CPU
+		{4C92FCF4-3561-499F-BC5B-F2F089863047}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
