@@ -61,11 +61,20 @@ namespace Sauron.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à /cgi-bin/configManager.cgi?action=getConfig&amp;name=Ptz.
+        ///   Recherche une chaîne localisée semblable à /cgi-bin/configManager.cgi?action=getConfig&amp;name={0}.
         /// </summary>
-        public static string GetConfigConfigUrl {
+        public static string GetConfigUrl {
             get {
-                return ResourceManager.GetString("GetConfigConfigUrl", resourceCulture);
+                return ResourceManager.GetString("GetConfigUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à /cgi-bin/{0}.cgi?action=getStatus&amp;channel={1}.
+        /// </summary>
+        public static string GetStatusUrl {
+            get {
+                return ResourceManager.GetString("GetStatusUrl", resourceCulture);
             }
         }
         
@@ -88,11 +97,47 @@ namespace Sauron.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Move left and down.
+        /// </summary>
+        public static string MoveLeftDownCommandToolTip {
+            get {
+                return ResourceManager.GetString("MoveLeftDownCommandToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Move left and up.
+        /// </summary>
+        public static string MoveLeftUpCommandToolTip {
+            get {
+                return ResourceManager.GetString("MoveLeftUpCommandToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Move right.
         /// </summary>
         public static string MoveRightCommandToolTip {
             get {
                 return ResourceManager.GetString("MoveRightCommandToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Move right and down.
+        /// </summary>
+        public static string MoveRightDownCommandToolTip {
+            get {
+                return ResourceManager.GetString("MoveRightDownCommandToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Move right and up.
+        /// </summary>
+        public static string MoveRightUpCommandToolTip {
+            get {
+                return ResourceManager.GetString("MoveRightUpCommandToolTip", resourceCulture);
             }
         }
         

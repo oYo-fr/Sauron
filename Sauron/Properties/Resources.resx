@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GetConfigConfigUrl" xml:space="preserve">
-    <value>/cgi-bin/configManager.cgi?action=getConfig&amp;name=Ptz</value>
+  <data name="GetConfigUrl" xml:space="preserve">
+    <value>/cgi-bin/configManager.cgi?action=getConfig&amp;name={0}</value>
   </data>
   <data name="MoveDownCommandToolTip" xml:space="preserve">
     <value>Move down</value>
@@ -146,5 +146,20 @@
   </data>
   <data name="ZoomWideCommandToolTip" xml:space="preserve">
     <value>Zoom in</value>
+  </data>
+  <data name="GetStatusUrl" xml:space="preserve">
+    <value>/cgi-bin/{0}.cgi?action=getStatus&amp;channel={1}</value>
+  </data>
+  <data name="MoveLeftDownCommandToolTip" xml:space="preserve">
+    <value>Move left and down</value>
+  </data>
+  <data name="MoveLeftUpCommandToolTip" xml:space="preserve">
+    <value>Move left and up</value>
+  </data>
+  <data name="MoveRightDownCommandToolTip" xml:space="preserve">
+    <value>Move right and down</value>
+  </data>
+  <data name="MoveRightUpCommandToolTip" xml:space="preserve">
+    <value>Move right and up</value>
   </data>
 </root>

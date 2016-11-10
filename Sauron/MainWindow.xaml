@@ -19,6 +19,7 @@
         Title="Sauron" Height="683.824" Width="914.705">
     <Fluent:RibbonWindow.Resources>
         <conv:CameraViewModelToRstpVideoStreamUrl x:Key="CameraViewModelToRstpVideoStreamUrl"/>
+        <conv:PtzCommandBindingToCommandParameter x:Key="PtzCommandBindingToCommandParameter" />
     </Fluent:RibbonWindow.Resources>
     <Fluent:RibbonWindow.DataContext>
         <ViewModel:MainViewModel />
@@ -27,11 +28,11 @@
 
         <Fluent:Ribbon DockPanel.Dock="Top" x:Name="ribbon"
 			AutomaticStateManagement="True">
-            <!--<Fluent:Ribbon.Menu>
+            <Fluent:Ribbon.Menu>
                 <Fluent:Backstage>
                     <Fluent:BackstageTabControl/>
                 </Fluent:Backstage>
-            </Fluent:Ribbon.Menu>-->
+            </Fluent:Ribbon.Menu>
             <Fluent:Ribbon.ContextualGroups>
                 <Fluent:RibbonContextualTabGroup x:Name="tabGroup1"
                                                  BorderBrush="Magenta"
@@ -56,7 +57,7 @@
             <Fluent:RibbonTabItem x:Name="homeTabItem"
                                   Header="Home"
                                   KeyTip="H"
-                                  ToolTip="Regular Tool Tip">
+                                  ToolTip="Home">
                 <Fluent:RibbonGroupBox Header="{x:Static resx:Resources.MovesGroupBoxLabel}">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -69,96 +70,190 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Fluent:Button Grid.Column="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveUpCommandToolTip}">
+                        <Fluent:Button Grid.Column="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveUpCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.Up}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
                             <Fluent:Button.Icon>
                                 <fa:ImageAwesome Icon="ArrowUp" />
                             </Fluent:Button.Icon>
                         </Fluent:Button>
-                        <Fluent:Button Grid.Column="2" Grid.Row="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveRightCommandToolTip}">
+                        <Fluent:Button Grid.Column="2" Size="Small" ToolTip="{x:Static resx:Resources.MoveRightUpCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.RightUp}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowUp" Rotation="45" Foreground="#FFD1D1D1" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                        <Fluent:Button Grid.Column="2" Grid.Row="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveRightCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.Right}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
                             <Fluent:Button.Icon>
                                 <fa:ImageAwesome Icon="ArrowRight" />
                             </Fluent:Button.Icon>
                         </Fluent:Button>
-                        <Fluent:Button Grid.Column="1" Grid.Row="2" Size="Small" ToolTip="{x:Static resx:Resources.MoveDownCommandToolTip}">
+                        <Fluent:Button Grid.Column="2" Grid.Row="3" Size="Small" ToolTip="{x:Static resx:Resources.MoveRightDownCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.RightDown}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowRight" Rotation="45" Foreground="#FFD1D1D1" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                        <Fluent:Button Grid.Column="1" Grid.Row="2" Size="Small" ToolTip="{x:Static resx:Resources.MoveDownCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.Down}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
                             <Fluent:Button.Icon>
                                 <fa:ImageAwesome Icon="ArrowDown" />
                             </Fluent:Button.Icon>
                         </Fluent:Button>
-                        <Fluent:Button Grid.Row="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveLeftCommandToolTip}">
+                        <Fluent:Button Grid.Row="3" Size="Small" ToolTip="{x:Static resx:Resources.MoveLeftDownCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.LeftDown}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowDown" Rotation="45" Foreground="#FFD1D1D1" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                        <Fluent:Button Grid.Row="1" Size="Small" ToolTip="{x:Static resx:Resources.MoveLeftCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.Left}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
                             <Fluent:Button.Icon>
                                 <fa:ImageAwesome Icon="ArrowLeft" />
+                            </Fluent:Button.Icon>
+                        </Fluent:Button>
+                        <Fluent:Button Size="Small" ToolTip="{x:Static resx:Resources.MoveLeftUpCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                    <Binding Source="{x:Static cmd:PtzCommandTypeEnum.LeftUp}" Mode="OneWay" />
+                                    <!-- Channel -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg1 -->
+                                    <Binding Source="0"/>
+                                    <!-- Arg2 -->
+                                    <Binding Source="1"/>
+                                    <!-- Arg3 -->
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                            <Fluent:Button.Icon>
+                                <fa:ImageAwesome Icon="ArrowLeft" Rotation="45" Foreground="#FFD1D1D1" />
                             </Fluent:Button.Icon>
                         </Fluent:Button>
                     </Grid>
                 </Fluent:RibbonGroupBox>
 
                 <Fluent:RibbonGroupBox Header="{x:Static resx:Resources.ZoomGroupBoxLabel}">
-
-                    <!--<Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomTeleCommandToolTip}" Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}">
+                    <Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomTeleCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                <Binding Source="{x:Static cmd:PtzCommandTypeEnum.ZoomTele}" Mode="OneWay" />
+                                <!-- Channel -->
+                                <Binding Source="0"/>
+                                <!-- Arg1 -->
+                                <Binding Source="0"/>
+                                <!-- Arg2 -->
+                                <Binding Source="0"/>
+                                <!-- Arg3 -->
+                                <Binding Source="0"/>
+                            </MultiBinding>
+                        </Button.CommandParameter>
                         <Fluent:Button.LargeIcon>
                             <fa:ImageAwesome Icon="SearchPlus" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-
-                    <Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomWideCommandToolTip}" Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}">
+                    <Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomWideCommandToolTip}" Command="{Binding SelectedCameraViewModel.PtzCameraCommand}">
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource PtzCommandBindingToCommandParameter}">
+                                <Binding Source="{x:Static cmd:PtzCommandTypeEnum.ZoomWide}" Mode="OneWay" />
+                                <!-- Channel -->
+                                <Binding Source="0"/>
+                                <!-- Arg1 -->
+                                <Binding Source="0"/>
+                                <!-- Arg2 -->
+                                <Binding Source="0"/>
+                                <!-- Arg3 -->
+                                <Binding Source="0"/>
+                            </MultiBinding>
+                        </Button.CommandParameter>
                         <Fluent:Button.LargeIcon>
                             <fa:ImageAwesome Icon="SearchMinus" />
                         </Fluent:Button.LargeIcon>
-                    </Fluent:Button>-->
-
-                    
-                    <Fluent:ToggleButton Size="Large" ToolTip="{x:Static resx:Resources.ZoomTeleCommandToolTip}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Checked" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
-                            </i:EventTrigger>
-                            <i:EventTrigger EventName="Unchecked" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <Fluent:ToggleButton.LargeIcon>
-                            <fa:ImageAwesome Icon="SearchPlus" />
-                        </Fluent:ToggleButton.LargeIcon>
-                    </Fluent:ToggleButton>
-                    <Fluent:ToggleButton Size="Large" ToolTip="{x:Static resx:Resources.ZoomWideCommandToolTip}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Checked" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
-                            </i:EventTrigger>
-                            <i:EventTrigger EventName="Unchecked" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <Fluent:ToggleButton.LargeIcon>
-                            <fa:ImageAwesome Icon="SearchMinus" />
-                        </Fluent:ToggleButton.LargeIcon>
-                    </Fluent:ToggleButton>
-                    <!--<Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomTeleCommandToolTip}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="MouseLeftButtonDown" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
-                            </i:EventTrigger>
-                            <i:EventTrigger EventName="MouseLeftButtonUp" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <Fluent:Button.LargeIcon>
-                            <fa:ImageAwesome Icon="SearchPlus" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>-->
-                    <!--<Fluent:Button Size="Large" ToolTip="{x:Static resx:Resources.ZoomWideCommandToolTip}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="MouseLeftButtonDown" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomWideCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Start}" />
-                            </i:EventTrigger>
-                            <i:EventTrigger EventName="MouseLeftButtonUp" >
-                                <i:InvokeCommandAction Command="{Binding SelectedCameraViewModel.ZoomTeleCommand}" CommandParameter="{x:Static cmd:CommandActionTypeEnum.Stop}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <Fluent:Button.LargeIcon>
-                            <fa:ImageAwesome Icon="SearchMinus" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>-->
+                    </Fluent:Button>
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
             <Fluent:RibbonTabItem Header="Movements"

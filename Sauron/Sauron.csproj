@@ -86,17 +86,23 @@
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\CameraCommand.cs" />
     <Compile Include="Commands\CommandActionTypeEnum.cs" />
-    <Compile Include="Commands\ZoomTeleCommand.cs" />
-    <Compile Include="Commands\ZoomWideCommand.cs" />
+    <Compile Include="Commands\PtzCameraCommand.cs" />
+    <Compile Include="Commands\PtzCameraCommandParameter.cs" />
+    <Compile Include="Commands\PtzCommandTypeEnum.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CameraController.cs" />
+    <Compile Include="Converters\PtzCommandBindingToCommandParameter.cs" />
+    <Compile Include="ViewModels\Config\ConfigViewModel.cs" />
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\CameraViewModelToRstpVideoStreamUrl.cs" />
     <Compile Include="DesignTimeViewModels\DTCameraViewModel.cs" />
     <Compile Include="DesignTimeViewModels\DTMainViewModel.cs" />
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="Utils\Service.cs" />
+    <Compile Include="ViewModels\Config\Ptz.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Status\StatusViewModel.cs" />
+    <Compile Include="ViewModels\Status\Ptz.cs" />
     <Compile Include="Views\CameraView.xaml.cs">
       <DependentUpon>CameraView.xaml</DependentUpon>
     </Compile>

@@ -36,8 +36,8 @@ namespace Sauron.Views
 
         private void CameraView_DataContextChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
         {
-            player.MediaPlayer.Play((Uri)(new CameraViewModelToRstpVideoStreamUrl()).Convert(((MainViewModel)DataContext).SelectedCameraViewModel, typeof(Uri), null, CultureInfo.InvariantCulture), null);
-            //player.MediaPlayer.Play("rtsp://admin:%40Krilik1@90.120.188.10:554/cam/realmonitor?channel=1&subtype=0", null);
+            //player.MediaPlayer.Play((Uri)(new CameraViewModelToRstpVideoStreamUrl()).Convert(((MainViewModel)DataContext).SelectedCameraViewModel, typeof(Uri), null, CultureInfo.InvariantCulture), null);
+            player.MediaPlayer.Play("rtsp://admin:%40Krilik1@90.120.188.10:554/cam/realmonitor?channel=1&subtype=0", null);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Sauron.Commands
 {
-    public abstract class BaseCommand<T> : ICommand
+    public abstract class BaseCommand<T> : BaseViewModel, ICommand
         where T: BaseViewModel
     {
         protected T BaseViewModel;

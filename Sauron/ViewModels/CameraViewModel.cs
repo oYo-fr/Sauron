@@ -1,5 +1,9 @@
 ﻿using Sauron.Commands;
 using Sauron.Controllers;
+using Sauron.ViewModels.Config;
+using Sauron.ViewModels.Status;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Sauron.ViewModels
 {
@@ -19,15 +23,45 @@ namespace Sauron.ViewModels
                 return cameraController;
             }
         }
-        
-        public ZoomTeleCommand ZoomTeleCommand { protected set; get; }
-        public ZoomWideCommand ZoomWideCommand { protected set; get; }
+
+        private ObservableCollection<ConfigViewModel> configViewModels = new ObservableCollection<ConfigViewModel>();
+        public ObservableCollection<ConfigViewModel> ConfigViewModels
+        {
+            private set
+            {
+                if (configViewModels == value) return;
+                configViewModels = value;
+                RaisePropertyChanged();
+            }
+            get
+            {
+                return configViewModels;
+            }
+        }
+
+        private ObservableCollection<StatusViewModel> statusViewModels = new ObservableCollection<StatusViewModel>();
+        public ObservableCollection<StatusViewModel> StatusViewModels
+        {
+            private set
+            {
+                if (statusViewModels == value) return;
+                statusViewModels = value;
+                RaisePropertyChanged();
+            }
+            get
+            {
+                return statusViewModels;
+            }
+        }
+
+        public PtzCameraCommand PtzCameraCommand { protected set; get; }
 
         public CameraViewModel(CameraController cameraController)
         {
             CameraController = cameraController;
-            ZoomTeleCommand = new ZoomTeleCommand(this);
-            ZoomWideCommand = new ZoomWideCommand(this);
+            PtzCameraCommand = new PtzCameraCommand(this);
+            StatusViewModels.Add(new ViewModels.Status.Ptz(CameraController));
+            ConfigViewModels.Add(new ViewModels.Config.Ptz(CameraController));
         }
     }
 }
